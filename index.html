@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button {
+  background-color:#008CBA;
+  border-radius: 20px;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    h1{
+       
+        color:#555555;
+        text-align:center;
+        font-size: 32px;
+        padding: 10px;
+    }
+
+    h2{
+        color: purple;
+        font-weight: bolder;
+    }
+    * {
+  box-sizing: border-box;
+}
+
+html, body  {
+  height: 100%
+}
+
+body {
+  background: #f5f5f5
+}
+
+body, h1, h2, div, button {
+  font-family: Arial, Helvetica, sans-serif;
+}
+    
+    </style>	
+</head>
+<body>
+    <h1>Testing API</h1> 
+    <button type="button" onclick="exibir()">
+        exibir</button>
+    <div id="contents">
+    </div>
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function exibir(){
+            $.get('https://jsonplaceholder.typicode.com/posts', function(data){
+                data.forEach(function(posts){
+                    $('#contents').append('<h2>' +posts.title+ '</h2>')
+                    $('#contents').append('<div>' +posts.body+ '</div>')
+                })
+            })
+        }
+    </script>
+</body>
+
+</html>
